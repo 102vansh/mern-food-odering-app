@@ -1,0 +1,20 @@
+.myorders{
+    margin: 50px 0px;
+}
+.myorders .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+
+}
+.myorders-item{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
+    gap: 30px;
+    align-items: center;
+    padding: 10px 20px;
+    color: gray;
+    font-size: 14px;
+    border-bottom: 1px solid tomato;
+}

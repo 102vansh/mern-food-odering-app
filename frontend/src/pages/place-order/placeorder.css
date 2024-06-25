@@ -1,0 +1,38 @@
+.placeorder{
+    display: flex;
+    
+    align-items: start;
+    margin-top: 100px;
+    justify-content: space-between;
+    
+}
+.placeorder-left{
+    width: 100%;
+    max-width: max(30%,500px);
+    margin-left: 25px;
+
+}
+.placeorder-left .title{
+font-size: 30px;
+font-weight: 600;
+margin-bottom:50px ;
+}
+.placeorder-left input{
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline-color: tomato ;
+}
+.placeorder-left .multi-field{
+    display: flex;
+    gap: 10px;
+    
+}
+.placeorder-right{
+    width: 100%;
+    max-width: max(40%,500px);
+    margin-right: 35px;
+
+}

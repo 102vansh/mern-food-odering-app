@@ -1,0 +1,148 @@
+.cart{
+    margin-top: 100px;
+    margin-left: 30px;
+}
+.cart-items-title{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: grey;
+    font-size: max(1vw,12px);
+    gap: 20px;
+}
+.cart-items-item{
+    margin : 10px 0;
+    color: black;
+}
+.cart-items-item img{
+width: 100px;
+border-radius: 50%;
+
+}
+  .cart hr{
+    height: 1.5px;
+    background-color: rgb(158, 153, 153);
+    border: none;
+    
+}
+.cross{
+    cursor: pointer;
+}
+.cart-bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    gap: max(12vw,20px);
+}
+.total{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.details{
+    display:flex;
+    justify-content: space-between;
+    color: gray;
+
+}
+.total hr{
+    margin: 10px 0;
+}
+.total button{
+    background-color:tomato;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    padding:12px 0;
+    cursor: pointer;
+    border-radius: 7px;
+    width: max();
+}
+/* .promo-code{
+    flex: 1;
+}
+.promo-code p{
+    color: gray;
+}
+.promocode-input{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(216, 207, 207);
+    border-radius: 4px;
+    align-items: center;
+}
+.promocode-input input{
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}
+.promocode-input button{
+    width: max(10vw,140px);
+    padding: 12px 0;
+    cursor: pointer;
+    color: azure;
+    border-radius: 5px;
+    background-color: black;
+    margin-bottom: 20px;
+
+} */
+
+
+.promocode {
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: none;
+    margin-right: 10px;
+  }
+  
+  .promocode p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .promocode-input {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .promocode-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 19px;
+    height: 40px;
+  }
+  
+  .promocode-input button {
+    padding: 10px 20px;
+    margin-bottom: 26px;
+    background-color: #0a0a0a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .promocode-input button:hover {
+    background-color: #2e2727;
+  }
+  
+  .full-width-hr {
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-top: 1px solid #000; /* Adjust the color and width of the border as needed */
+  }
+  

@@ -1,0 +1,77 @@
+.order {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .order h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .order-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .order-item {
+    /* display: flex; */
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+  }
+  
+  .order-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  .order-item-food {
+    flex-grow: 1;
+  }
+  
+  .order-item-food p {
+    margin: 5px 0;
+  }
+  
+  .order-item-name {
+    font-weight: bold;
+  }
+  
+  .order-item-address p {
+    margin: 0;
+  }
+  
+  .order-item-phone,
+  .order-item-status {
+    margin-top: 10px;
+  }
+  
+  .order-item select {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .order-item p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .order-item-status {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .order-item-status::before {
+    content: 'Status: ';
+  }
+  
