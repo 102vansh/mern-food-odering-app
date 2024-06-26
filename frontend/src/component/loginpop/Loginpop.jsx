@@ -35,23 +35,23 @@ newurl += '/api/v1/user/login'
 try{
 const reaponse = await axios.post(newurl,data)
 console.log(reaponse.data)
-if(reaponse.data.success){
+
   settoken(reaponse.data.token)
   console.log(reaponse.data.token)
   localStorage.setItem('token',reaponse.data.token)
   setshow(false)
+  console.log(reaponse.data.message)
   toast.success(reaponse.data.message)
-}else{
-  toast.error(reaponse.data.message)
-}
+
 }catch(error){
+  toast.error(error.response.data.message)
 console.log(error)
 }
 }
 
-useEffect(()=>{
-  console.log(data)
-},[data])
+// useEffect(()=>{
+//   console.log(data)
+// },[data])
 
   return (
     <div className='loginpop'>
@@ -71,9 +71,9 @@ useEffect(()=>{
             <p>I agree to the Terms of Service and Privacy Policy</p>
         </div>
         {cureent ==='Login' ? <>Create an New account?<span onClick={()=>setcurrent('Sign-Up')}>Sign-Up</span></> : <p>Already have an account?<span onClick={()=>setcurrent('Login')}>Login</span></p>}
-    
+    <Toaster/>
         </form>
-        <Toaster/>
+       
     </div>
   )
 }

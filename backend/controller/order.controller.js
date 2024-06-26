@@ -2,6 +2,7 @@ const Order = require('../models/order.model')
 const User = require('../models/user.models')
 const Stripe = require('stripe')
 
+
 const stripe = new Stripe('sk_test_51PVXVZP7MCQR22CAhjSGUeYhkFXIVNZ1BaJ7kxTKOOhlIN0v9jB7OaSh7D5WIKO5P1rxIXaUcGEHQFtbXq4UZXyQ00VjHoGdvO')
 exports.placeorder = async (req, res,next) => {
 
@@ -40,6 +41,7 @@ const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items,
     mode: "payment",
+
     success_url: `http://localhost:5173/verify?success=true&order_id=${neworder._id}`,
     cancel_url: `http://localhost:5173/verify?success=false&order_id=${neworder._id}`,
 })
@@ -56,36 +58,83 @@ res.status(200).json({
 }
 
 
-exports.verifyorder = async (req, res,next) => {
-    try{
-const {success, order_id} = req.query
-if(success === "true"){
-    await Order.findByIdAndUpdate(order_id,{payment: true})
+// exports.verifyorder = async (req, res,next) => {
+//     try{
+// const {success, order_id} = req.query
 
-res.status(200).json({
-    success: true,
-    message: "order verified successfully",
-})
-}
-else{
-    await Order.findByIdAndDelete(order_id)
+//   const order =  await Order.findByIdAndUpdate(order_id,{payment: true})
 
-res.status(400).json({
-    success: false,
-    message: "order cancelled ",
-})
+// res.status(200).json({
+//     success: true,
+//     message: "order verified successfully",
+// order
+// })
+exports.verifyorder = async (req, res, next) => {
+    try {
+        const { success, order_id } = req.body;
+        console.log("Received order_id:", order_id);
+
+        // Check if order_id is provided
+        if (!order_id) {
+            return res.status(400).json({
+                success: false,
+                message: "Order ID is required"
+            });
+        }
+
+        // // Check if order_id is a valid ObjectId (if using MongoDB)
+        // if (!mongoose.Types.ObjectId.isValid(order_id)) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: "Invalid Order ID"
+        //     });
+        // }
+
+        const order = await Order.findByIdAndUpdate(order_id, { payment: true }, { new: true });
+        
+        // Check if order was found and updated
+        if (!order) {
+            return res.status(404).json({
+                success: false,
+                message: "Order not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "payment done",
+            order
+        });
+    } catch (error) {
+            await Order.findByIdAndDelete(order_id)
+        console.error("Error verifying order:", error);
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+    }
+};
+
+// else{
+//     await Order.findByIdAndDelete(order_id)
+
+// res.status(400).json({
+//     success: false,
+//     message: "order cancelled ",
+// })
 
     
-}
-    }catch(error){
-return next(error)
-    }
-}
+// }
+//     catch(error){
+//         // await Order.findByIdAndDelete(order_id)
+// return next(error)
+//     }
+// }
 //userorder for frontend
 
 exports.userorder = async (req, res,next) => {
     try {
-        const orders = await Order.find({userid: req.user._id})
+        const orders = await Order.find({userid: req.body.userid})
         res.status(200).json({
             success: true,
             data: orders

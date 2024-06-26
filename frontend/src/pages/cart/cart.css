@@ -94,7 +94,7 @@ border-radius: 50%;
 
 .promocode {
     padding: 20px;
-    background-color: #fefefe;
+    background-color: rgb(224, 181, 174);
     border: 1px solid #ddd;
     border-radius: 10px;
     margin: 20px 0;
@@ -106,11 +106,14 @@ border-radius: 50%;
     margin-bottom: 10px;
     font-size: 16px;
     color: #333;
+    margin-top: 20px;
+    font: bold;
   }
   
   .promocode-input {
     display: flex;
-    gap: 5px;
+    gap: -6px;
+    margin-top: 30px;
   }
   
   .promocode-input input {

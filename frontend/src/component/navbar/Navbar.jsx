@@ -7,7 +7,7 @@ import { Storecontext } from '../../context/Store'
 import { useNavigate } from 'react-router-dom'
 const Navbar = ({setshow}) => {
 const[menu,setmenu]=useState('home')
-const{totalcartamount,token,settoken} = useContext(Storecontext)
+const{totalcartamount,token,settoken,cartitem} = useContext(Storecontext)
 const [dropdownVisible, setDropdownVisible] = useState(false);
 const navigate = useNavigate()
 const logout = ()=>{
@@ -33,7 +33,7 @@ const toggleDropdown = () => {
     <div className='navbar-right'>
         <img src={assets.search_icon} alt="search" />
         <div className='navbar-search-icon'>
-          <Link to='/cart'>  <img src={assets.basket_icon} alt="cart" /></Link>
+          <Link to='/cart'>  <img src={assets.basket_icon} alt="cart" />{cartitem.length}</Link>
             <div className={totalcartamount() > 0 ? 'dot' : ''}></div>
             
         </div>

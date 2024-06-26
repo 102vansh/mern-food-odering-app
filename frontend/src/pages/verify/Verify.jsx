@@ -4,6 +4,7 @@ import { Storecontext } from '../../context/Store'
 import axios from 'axios'
 import { useEffect } from 'react'
 import './verify.css'
+import toast from 'react-hot-toast'
 const Verify = () => {
     const[searchparams,setSearchParams]= useSearchParams()
     const success = searchparams.get("success")
@@ -12,22 +13,29 @@ const Verify = () => {
     const{url,token} = useContext(Storecontext)
     const navigate = useNavigate()
 const verifypayment = async()=>{
-    console.log(token)
-    const response = await axios.post(`${url}/api/v1/order/verify`,{success,order_id},{
-        headers: {
-        Authorization: `Bearer ${token}`,
-    },
-    withCredentials: true,
+    try{
     
+    const response = await axios.post(`${url}/api/v1/order/verify`,{success,order_id},{
     })
+    console.log(order_id,success)
+    console.log(response.data.order)
     if(response.data.success){
         navigate('/myorders')
-        console.log(token)
+        toast.success(response.data.message)
+    
     }
     else{
         navigate('/')
     }
-    console.log(data)
+}
+catch(error){
+    console.log(error)
+    
+}
+    
+
+    
+
 }
 useEffect(()=>{
     verifypayment()

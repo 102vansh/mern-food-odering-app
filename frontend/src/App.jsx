@@ -9,6 +9,7 @@ import Loginpop from './component/loginpop/Loginpop'
 import { useState } from 'react'
 import Verify from './pages/verify/Verify'
 import Myorder from './pages/myorders/Myorder'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   const[show,setshow] = useState(false)
@@ -29,6 +30,7 @@ const App = () => {
       </Routes>
 
       <Footer/>
+      <Toaster/>
     </div>
   )
 }

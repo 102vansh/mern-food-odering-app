@@ -2,6 +2,7 @@ import {createContext, useEffect} from 'react';
 // import { food_list } from '../frontend_assets/assets';
 import { useState } from 'react';
 import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast';
 export const Storecontext = createContext(null);
 
 
@@ -31,7 +32,7 @@ try{
       },
       withCredentials: true,
   })
-      
+      toast.success(response.data.message)
      console.log(response.data)
                   }
 }catch(err){
