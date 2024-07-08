@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Verify from './pages/verify/Verify'
 import Myorder from './pages/myorders/Myorder'
 import { Toaster } from 'react-hot-toast'
+import Trackorder from './pages/TrackOrder/Trackorder'
 
 const App = () => {
   const[show,setshow] = useState(false)
@@ -27,6 +28,7 @@ const App = () => {
       <Route path = '/placeorder' element = {<Placeorder/>}></Route>
       <Route path = '/verify' element = {<Verify/>}></Route>
       <Route path = '/myorders' element= {<Myorder/>}></Route>
+      <Route path='/trackorder' element = {<Trackorder/>}></Route>
       </Routes>
 
       <Footer/>

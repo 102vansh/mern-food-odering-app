@@ -70,6 +70,7 @@ import { useState, useEffect } from 'react';
 import { Storecontext } from '../../context/Store';
 import axios from 'axios';
 import { assets } from '../../frontend_assets/assets';
+import { Link } from 'react-router-dom';
 
 const Myorder = () => {
     const { token } = useContext(Storecontext);
@@ -131,7 +132,7 @@ const Myorder = () => {
                             <p>
                                 <span style={{color:"black"}}>&#x25cf;</span><b style={{color:"black"}}>{order?.status}</b>
                             </p>
-                            <button>Track Order</button>
+                           <Link to={'/trackorder'}><button>Track Order</button></Link> 
                         </div>
                     ))
                 ) : (

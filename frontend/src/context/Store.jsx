@@ -34,6 +34,9 @@ try{
   })
       toast.success(response.data.message)
      console.log(response.data)
+     if(!token){
+      setcartitem({})
+     }
                   }
 }catch(err){
     console.log(err)
