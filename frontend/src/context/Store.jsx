@@ -102,10 +102,20 @@ useEffect(() => {
 
 const url = 'http://localhost:3000'
     
+const totalcart = () =>{
+let total = 0
+for (let item in cartitem){
+    if(cartitem[item]>0){
+      total += cartitem[item]
+    }
+}
 
+return total
+  
+}
 
     return (
-        <Storecontext.Provider value={{food_list,cartitem,addtocart,removecart,totalcartamount,url,token,settoken}}>{children}</Storecontext.Provider>
+        <Storecontext.Provider value={{food_list,cartitem,addtocart,removecart,totalcartamount,url,token,settoken,totalcart}}>{children}</Storecontext.Provider>
     )
 
 

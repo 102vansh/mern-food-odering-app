@@ -7,7 +7,8 @@ import { Storecontext } from '../../context/Store'
 import { useNavigate } from 'react-router-dom'
 const Navbar = ({setshow}) => {
 const[menu,setmenu]=useState('home')
-const{totalcartamount,token,settoken,cartitem} = useContext(Storecontext)
+const{totalcartamount,token,settoken,cartitem,totalcart} = useContext(Storecontext)
+console.log(totalcart)
 const [dropdownVisible, setDropdownVisible] = useState(false);
 const navigate = useNavigate()
 const logout = ()=>{
@@ -18,6 +19,7 @@ const logout = ()=>{
 const toggleDropdown = () => {
   setDropdownVisible(!dropdownVisible);
 };
+
 
   return (
     <div className='navbar'>
@@ -33,8 +35,9 @@ const toggleDropdown = () => {
     <div className='navbar-right'>
         <img src={assets.search_icon} alt="search" />
         <div className='navbar-search-icon'>
-          <Link to='/cart'>  <img src={assets.basket_icon} alt="cart" />{cartitem.length}</Link>
-            <div className={totalcartamount() > 0 ? 'dot' : ''}></div>
+          <Link to='/cart'>  <img src={assets.basket_icon} alt="cart" /></Link>
+         
+            <div className={totalcartamount() > 0 ? 'dot' : ''}><span style={{color:'black',fontWeight:'semibold',position:'relative',top:'-2px',right:'-6px',padding:'2px',borderRadius:'50%'}}>{totalcart()}</span></div>
             
         </div>
 

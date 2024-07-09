@@ -61,12 +61,12 @@ gap: 40px;
 }
 .navbar-search-icon .dot{
     position: absolute;
-    min-height: 10px;
-    min-width: 10px;
+    height: 20px;
+   width: 20px;
     top: -8px;
-    right: -8px;
-    border-radius: 5px;
-    color: tomato;
+    right: -10px;
+    border-radius: 10px;
+    background-color: rgb(207, 70, 46);
 
 
 }
